@@ -1,29 +1,26 @@
 function updateOrder() {
-    const prices = [5000000, 7000000, 150000000, 170000000, 140000000, 270000000];
-    let orderDetails = "";
+    const prices = [5000000, 7000000, 15000000, 17000000, 14000000, 270000000];
+    let orders = '';
     let total = 0;
 
     for (let i = 1; i <= 6; i++) {
-        const qty = document.getElementById(`qty${i}`).value;
-        if (qty && qty > 0) {
-            const itemTotal = qty * prices[i - 1];
-            orderDetails += `Item ${i}: ${qty} x ₱${prices[i - 1]} = ₱${itemTotal}\n`;
-            total += itemTotal;
+        const qty = parseInt(document.getElementById(`qty${i}`).value) || 0;
+        if (qty > 0) {
+            const price = prices[i - 1];
+            total += qty * price;
+            orders += `${document.querySelector(`.card:nth-child(${i}) .card-title`).textContent}: ${qty} x ₱${price.toLocaleString()} = ₱${(qty * price).toLocaleString()}\n`;
         }
     }
 
-    document.getElementById("carts").value = orderDetails;
-    document.getElementById("total").value = `Total: ₱${total}`;
+    document.getElementById('carts').value = orders;
+    document.getElementById('total').value = `Total: ₱${total.toLocaleString()}`;
+    calculateChange();
 }
 
 function calculateChange() {
-    const total = parseFloat(document.getElementById("total").value.replace("Total: ₱", ""));
-    const cash = parseFloat(document.getElementById("cash").value);
+    const total = parseInt(document.getElementById('total').value.replace(/[^0-9]/g, '')) || 0;
+    const cash = parseInt(document.getElementById('cash').value) || 0;
     const change = cash - total;
 
-    if (!isNaN(change) && change >= 0) {
-        document.getElementById("change").value = `Change: ₱${change}`;
-    } else {
-        document.getElementById("change").value = "Change: ₱0";
-    }
+    document.getElementById('change').value = change >= 0 ? `Change: ₱${change.toLocaleString()}` : 'Insufficient Cash';
 }
