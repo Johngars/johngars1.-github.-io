@@ -185,12 +185,18 @@
         }
 
         function calculateChange() {
-            let total = parseFloat(document.getElementById('total').value.replace('₱', '')) || 0;
+            let total = parseFloat(document.getElementById('total').value.replace('₱', '').replace(/,/g, '')) || 0;
             let cash = parseFloat(document.getElementById('cash').value) || 0;
             let change = cash - total;
 
             document.getElementById('change').value = `₱${change.toLocaleString()}`;
         }
+
+        // Update total and change on quantity change
+        document.querySelectorAll('.quantity-input').forEach(input => {
+            input.addEventListener('input', updateOrder);
+            input.addEventListener('input', calculateChange);
+        });
     </script>
 </body>
 </html>
