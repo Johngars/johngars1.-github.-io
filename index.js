@@ -1,10 +1,10 @@
 let products = [
-  { name: 'Vanilla special', price: 150, image: 'audir8' },
-  { name: 'Cool mint', price: 200, image: 'Cool mint.webp' },
-  { name: 'pina colada', price: 300, image: 'Pina colada.webp' },
-  { name: 'Raspberry and white chocolate', price: 210, image: 'Raspberry and white chocolate.webp' },
-  { name: 'Blueberry cheesecake', price: 150, image: 'Blueberry cheesecake.webp' },
-  { name: 'Strawberry marshmallow', price: 250, image: 'Strawberry marshmallow.webp' },
+  { name: 'Audi r8', price: 5000000 , image: 'audir8.jpeg' },
+  { name: 'Rolls royce', price: 18000000 , image: 'rollsroyce.png' },
+  { name: 'Dodge hellcat', price: 5000000, image: 'dodgehellcat.png' },
+  { name: 'Mclaren senna', price: 55000000, image: 'mclarensenna.jpeg' },
+  { name: 'Mustang shelby', price: 7000000, image: 'mustangshelby.jpeg' },
+  { name: 'Porsche brabus', price: 20000000, image: 'porschebrabus.jpeg' },
 
 ];
 
