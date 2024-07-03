@@ -18,31 +18,20 @@ function updateOrder() {
     let price5 = 14000000;
     let price6 = 270000000;
 
-    // Add items to orders array
-    if (qty1 > 0) {
-        orders.push(`Rolls Royce: ${qty1} x ₱${price1.toLocaleString()} = ₱${(qty1 * price1).toLocaleString()}`);
-        total += qty1 * price1;
+    // Update total and orders array dynamically
+    function updateTotalAndOrders(qty, price, itemName) {
+        if (qty > 0) {
+            orders.push(`${itemName}: ${qty} x ₱${price.toLocaleString()} = ₱${(qty * price).toLocaleString()}`);
+            total += qty * price;
+        }
     }
-    if (qty2 > 0) {
-        orders.push(`Dodgehellcat: ${qty2} x ₱${price2.toLocaleString()} = ₱${(qty2 * price2).toLocaleString()}`);
-        total += qty2 * price2;
-    }
-    if (qty3 > 0) {
-        orders.push(`Audi r8: ${qty3} x ₱${price3.toLocaleString()} = ₱${(qty3 * price3).toLocaleString()}`);
-        total += qty3 * price3;
-    }
-    if (qty4 > 0) {
-        orders.push(`Mclaren senna: ${qty4} x ₱${price4.toLocaleString()} = ₱${(qty4 * price4).toLocaleString()}`);
-        total += qty4 * price4;
-    }
-    if (qty5 > 0) {
-        orders.push(`Mustang shelby: ${qty5} x ₱${price5.toLocaleString()} = ₱${(qty5 * price5).toLocaleString()}`);
-        total += qty5 * price5;
-    }
-    if (qty6 > 0) {
-        orders.push(`Porsche brabus: ${qty6} x ₱${price6.toLocaleString()} = ₱${(qty6 * price6).toLocaleString()}`);
-        total += qty6 * price6;
-    }
+
+    updateTotalAndOrders(qty1, price1, 'Rolls Royce');
+    updateTotalAndOrders(qty2, price2, 'Dodgehellcat');
+    updateTotalAndOrders(qty3, price3, 'Audi r8');
+    updateTotalAndOrders(qty4, price4, 'Mclaren senna');
+    updateTotalAndOrders(qty5, price5, 'Mustang shelby');
+    updateTotalAndOrders(qty6, price6, 'Porsche brabus');
 
     // Display orders and total
     document.getElementById('carts').value = orders.join('\n');
@@ -56,3 +45,9 @@ function calculateChange() {
 
     document.getElementById('change').value = `₱${change.toLocaleString()}`;
 }
+
+// Update total and change on quantity change
+document.querySelectorAll('.quantity-input').forEach(input => {
+    input.addEventListener('input', updateOrder);
+    input.addEventListener('input', calculateChange);
+});
