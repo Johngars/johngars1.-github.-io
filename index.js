@@ -1,5 +1,5 @@
 let products = [
-  { name: 'Vanilla special', price: 150, image: 'Vanilla special.webp' },
+  { name: 'Vanilla special', price: 150, image: 'audir8' },
   { name: 'Cool mint', price: 200, image: 'Cool mint.webp' },
   { name: 'pina colada', price: 300, image: 'Pina colada.webp' },
   { name: 'Raspberry and white chocolate', price: 210, image: 'Raspberry and white chocolate.webp' },
