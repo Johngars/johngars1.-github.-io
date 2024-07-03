@@ -1,5 +1,5 @@
 function updateOrder() {
-    const prices = [300, 200, 250, 270, 290, 270];
+    const prices = [5000000, 7000000, 150000000, 170000000, 140000000, 270000000];
     let orderDetails = "";
     let total = 0;
 
