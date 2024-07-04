@@ -19,6 +19,7 @@
 
         .card {
             background: rgba(255, 255, 255, 0.8); /* Semi-transparent background for cards */
+            border: 2px solid; /* Default border */
         }
 
         .card img {
@@ -43,6 +44,31 @@
         .card-text {
             margin-bottom: 10px;
         }
+
+        /* Specific border colors for each card */
+        #card1 {
+            border-color: red;
+        }
+
+        #card2 {
+            border-color: blue;
+        }
+
+        #card3 {
+            border-color: green;
+        }
+
+        #card4 {
+            border-color: orange;
+        }
+
+        #card5 {
+            border-color: purple;
+        }
+
+        #card6 {
+            border-color: gold;
+        }
     </style>
 </head>
 <body>
@@ -55,31 +81,34 @@
         </div>
         <div class="row mb-3">
             <div class="col-md-4 text-center d-flex">
-                <div class="card w-100">
+                <div class="card w-100" id="card1">
                     <img src="rollsroyce.png" class="card-img-top img-thumbnail" alt="Rolls Royce">
                     <div class="card-body">
                         <h5 class="card-title">Rolls Royce</h5>
                         <p class="card-text">Price: ₱5000000.00</p>
+                        <p class="card-text">Specs: 563 hp, 6.75L V12 engine, 0-60 mph in 4.8 seconds</p>
                         <input type="number" class="form-control" id="qty1" placeholder="Enter quantity" oninput="updateOrder()">
                     </div>
                 </div>
             </div>
             <div class="col-md-4 text-center d-flex">
-                <div class="card w-100">
+                <div class="card w-100" id="card2">
                     <img src="dodgehellcat.png" class="card-img-top img-thumbnail" alt="Dodgehellcat">
                     <div class="card-body">
                         <h5 class="card-title">Dodgehellcat</h5>
                         <p class="card-text">Price: ₱7000000.00</p>
+                        <p class="card-text">Specs: 707 hp, 6.2L V8 engine, 0-60 mph in 3.6 seconds</p>
                         <input type="number" class="form-control" id="qty2" placeholder="Enter quantity" oninput="updateOrder()">
                     </div>
                 </div>
             </div>
             <div class="col-md-4 text-center d-flex">
-                <div class="card w-100">
+                <div class="card w-100" id="card3">
                     <img src="audir8.jpeg" class="card-img-top img-thumbnail" alt="Audi r8">
                     <div class="card-body">
                         <h5 class="card-title">Audi r8</h5>
                         <p class="card-text">Price: ₱15000000.00</p>
+                        <p class="card-text">Specs: 602 hp, 5.2L V10 engine, 0-60 mph in 3.2 seconds</p>
                         <input type="number" class="form-control" id="qty3" placeholder="Enter quantity" oninput="updateOrder()">
                     </div>
                 </div>
@@ -87,31 +116,34 @@
         </div>
         <div class="row mb-3">
             <div class="col-md-4 text-center d-flex">
-                <div class="card w-100">
+                <div class="card w-100" id="card4">
                     <img src="mclarensenna.jpeg" class="card-img-top img-thumbnail" alt="Mclaren senna">
                     <div class="card-body">
                         <h5 class="card-title">Mclaren senna</h5>
                         <p class="card-text">Price: ₱17000000.00</p>
+                        <p class="card-text">Specs: 789 hp, 4.0L V8 engine, 0-60 mph in 2.7 seconds</p>
                         <input type="number" class="form-control" id="qty4" placeholder="Enter quantity" oninput="updateOrder()">
                     </div>
                 </div>
             </div>
             <div class="col-md-4 text-center d-flex">
-                <div class="card w-100">
+                <div class="card w-100" id="card5">
                     <img src="mustangshelby.jpeg" class="card-img-top img-thumbnail" alt="Mustang shelby">
                     <div class="card-body">
                         <h5 class="card-title">Mustang shelby</h5>
                         <p class="card-text">Price: ₱14000000.00</p>
+                        <p class="card-text">Specs: 760 hp, 5.2L V8 engine, 0-60 mph in 3.5 seconds</p>
                         <input type="number" class="form-control" id="qty5" placeholder="Enter quantity" oninput="updateOrder()">
                     </div>
                 </div>
             </div>
             <div class="col-md-4 text-center d-flex">
-                <div class="card w-100">
+                <div class="card w-100" id="card6">
                     <img src="porschebrabus.jpeg" class="card-img-top img-thumbnail" alt="Porsche brabus">
                     <div class="card-body">
                         <h5 class="card-title">Porsche brabus</h5>
                         <p class="card-text">Price: ₱270000000.00</p>
+                        <p class="card-text">Specs: 900 hp, 4.5L V8 engine, 0-60 mph in 2.8 seconds</p>
                         <input type="number" class="form-control" id="qty6" placeholder="Enter quantity" oninput="updateOrder()">
                     </div>
                 </div>
@@ -179,24 +211,22 @@
                 total += qty6 * price6;
             }
 
-            // Display orders and total
+            // Update the orders textarea
             document.getElementById('carts').value = orders.join('\n');
-            document.getElementById('total').value = `₱${total.toLocaleString()}`;
+            // Update the total
+            document.getElementById('total').value = `Total: ₱${total.toLocaleString()}`;
+
+            // Clear the change field when orders are updated
+            document.getElementById('change').value = '';
         }
 
         function calculateChange() {
-            let total = parseFloat(document.getElementById('total').value.replace('₱', '').replace(/,/g, '')) || 0;
-            let cash = parseFloat(document.getElementById('cash').value) || 0;
+            let total = parseInt(document.getElementById('total').value.replace('Total: ₱', '').replace(/,/g, '')) || 0;
+            let cash = parseInt(document.getElementById('cash').value) || 0;
             let change = cash - total;
 
-            document.getElementById('change').value = `₱${change.toLocaleString()}`;
+            document.getElementById('change').value = `Change: ₱${change.toLocaleString()}`;
         }
-
-        // Update total and change on quantity change
-        document.querySelectorAll('.quantity-input').forEach(input => {
-            input.addEventListener('input', updateOrder);
-            input.addEventListener('input', calculateChange);
-        });
     </script>
 </body>
 </html>
