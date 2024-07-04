@@ -6,8 +6,7 @@
     <title>Millionaires Car</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
     <style>
@@ -37,78 +36,109 @@
             transition: transform 0.2s;
         }
 
-        /* Other CSS styles omitted for brevity */
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            max-height: 200px; /* Adjust this value as needed */
+            object-fit: cover;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+
+        .card-title,
+        .card-text {
+            margin-bottom: 10px;
+        }
+
+        .form-control {
+            border-radius: 20px;
+        }
+
+        #carts {
+            font-size: 12px;
+        }
+
+        .btn-custom {
+            background-color: #333;
+            color: #fff;
+            border-radius: 20px;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-custom:hover {
+            background-color: #555;
+        }
+
+        .footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Specific border colors for each card */
+        #card1 {
+            border-color: red;
+        }
+
+        #card2 {
+            border-color: blue;
+        }
+
+        #card3 {
+            border-color: green;
+        }
+
+        #card4 {
+            border-color: orange;
+        }
+
+        #card5 {
+            border-color: purple;
+        }
+
+        #card6 {
+            border-color: gold;
+        }
     </style>
 </head>
 <body>
-    <!-- Rest of your HTML content here -->
-</body>
-</html>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Millionaires Car</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Cars</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </div>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Millionaires Car</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cars</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
     <div class="container mt-5">
-        <div id="featuredCarsCarousel" class="carousel slide mb-4" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#featuredCarsCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#featuredCarsCarousel" data-slide-to="1"></li>
-              <li data-target="#featuredCarsCarousel" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="featured1.jpg" class="d-block w-100" alt="Featured Car 1">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Featured Car 1</h5>
-                  <p>Description of featured car 1.</p>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="featured2.jpg" class="d-block w-100" alt="Featured Car 2">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Featured Car 2</h5>
-                  <p>Description of featured car 2.</p>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="featured3.jpg" class="d-block w-100" alt="Featured Car 3">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Featured Car 3</h5>
-                  <p>Description of featured car 3.</p>
-                </div>
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#featuredCarsCarousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#featuredCarsCarousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-        </div>
-
         <div class="row mb-4">
             <div class="col-12 text-center">
                 <h2>Millionaires Car</h2>
@@ -122,16 +152,16 @@
                     <div class="card-body">
                         <h5 class="card-title">Rolls Royce</h5>
                         <p class="card-text">Price: ₱5000000.00</p>
-                        <p class="card-text">Specs: 563 hp, 6.75L V12 engine, 0-60 mph in 5.3 seconds</p>
+                        <p class="card-text">Specs: 563 hp, 6.75L V12 engine, 0-60 mph in 4.8 seconds</p>
                         <input type="number" class="form-control" id="qty1" placeholder="Enter quantity" oninput="updateOrder()">
                     </div>
                 </div>
             </div>
             <div class="col-md-4 text-center d-flex">
                 <div class="card w-100" id="card2">
-                    <img src="dodgehellcat.png" class="card-img-top img-thumbnail" alt="Dodge Hellcat">
+                    <img src="dodgehellcat.png" class="card-img-top img-thumbnail" alt="Dodgehellcat">
                     <div class="card-body">
-                        <h5 class="card-title">Dodge Hellcat</h5>
+                        <h5 class="card-title">Dodgehellcat</h5>
                         <p class="card-text">Price: ₱7000000.00</p>
                         <p class="card-text">Specs: 707 hp, 6.2L V8 engine, 0-60 mph in 3.6 seconds</p>
                         <input type="number" class="form-control" id="qty2" placeholder="Enter quantity" oninput="updateOrder()">
@@ -140,9 +170,9 @@
             </div>
             <div class="col-md-4 text-center d-flex">
                 <div class="card w-100" id="card3">
-                    <img src="audir8.jpeg" class="card-img-top img-thumbnail" alt="Audi R8">
+                    <img src="audir8.jpeg" class="card-img-top img-thumbnail" alt="Audi r8">
                     <div class="card-body">
-                        <h5 class="card-title">Audi R8</h5>
+                        <h5 class="card-title">Audi r8</h5>
                         <p class="card-text">Price: ₱15000000.00</p>
                         <p class="card-text">Specs: 602 hp, 5.2L V10 engine, 0-60 mph in 3.2 seconds</p>
                         <input type="number" class="form-control" id="qty3" placeholder="Enter quantity" oninput="updateOrder()">
@@ -153,20 +183,20 @@
         <div class="row mb-3">
             <div class="col-md-4 text-center d-flex">
                 <div class="card w-100" id="card4">
-                    <img src="mclarensenna.jpeg" class="card-img-top img-thumbnail" alt="McLaren Senna">
+                    <img src="mclarensenna.jpeg" class="card-img-top img-thumbnail" alt="Mclaren senna">
                     <div class="card-body">
-                        <h5 class="card-title">McLaren Senna</h5>
+                        <h5 class="card-title">Mclaren senna</h5>
                         <p class="card-text">Price: ₱17000000.00</p>
-                        <p class="card-text">Specs: 800 hp, 4.0L V8 engine, 0-60 mph in 2.8 seconds</p>
+                        <p class="card-text">Specs: 789 hp, 4.0L V8 engine, 0-60 mph in 2.7 seconds</p>
                         <input type="number" class="form-control" id="qty4" placeholder="Enter quantity" oninput="updateOrder()">
                     </div>
                 </div>
             </div>
             <div class="col-md-4 text-center d-flex">
                 <div class="card w-100" id="card5">
-                    <img src="mustangshelby.jpeg" class="card-img-top img-thumbnail" alt="Mustang Shelby">
+                    <img src="mustangshelby.jpeg" class="card-img-top img-thumbnail" alt="Mustang shelby">
                     <div class="card-body">
-                        <h5 class="card-title">Mustang Shelby</h5>
+                        <h5 class="card-title">Mustang shelby</h5>
                         <p class="card-text">Price: ₱14000000.00</p>
                         <p class="card-text">Specs: 760 hp, 5.2L V8 engine, 0-60 mph in 3.5 seconds</p>
                         <input type="number" class="form-control" id="qty5" placeholder="Enter quantity" oninput="updateOrder()">
@@ -175,11 +205,11 @@
             </div>
             <div class="col-md-4 text-center d-flex">
                 <div class="card w-100" id="card6">
-                    <img src="porschebrabus.jpeg" class="card-img-top img-thumbnail" alt="Porsche Brabus">
+                    <img src="porschebrabus.jpeg" class="card-img-top img-thumbnail" alt="Porsche brabus">
                     <div class="card-body">
-                        <h5 class="card-title">Porsche Brabus</h5>
+                        <h5 class="card-title">Porsche brabus</h5>
                         <p class="card-text">Price: ₱270000000.00</p>
-                        <p class="card-text">Specs: 1,000 hp, 4.5L V8 engine, 0-60 mph in 2.5 seconds</p>
+                        <p class="card-text">Specs: 900 hp, 4.0L V8 engine, 0-60 mph in 2.5 seconds</p>
                         <input type="number" class="form-control" id="qty6" placeholder="Enter quantity" oninput="updateOrder()">
                     </div>
                 </div>
@@ -190,10 +220,11 @@
                 <div class="card">
                     <div class="card-body">
                         <label for="carts">Orders</label>
-                        <textarea class="form-control mb-3" rows="10" id="carts" readonly style="font-size: 12px;"></textarea>
+                        <textarea class="form-control mb-3" rows="10" id="carts" readonly></textarea>
                         <input type="text" class="form-control border-0 mb-3" id="total" readonly placeholder="Total"/>
                         <input type="number" class="form-control mb-3" id="cash" placeholder="Cash Tendered" oninput="calculateChange()">
                         <input type="text" class="form-control border-0 mb-3" id="change" readonly placeholder="Change"/>
+                        <button class="btn btn-custom">Confirm Order</button>
                     </div>
                 </div>
             </div>
@@ -231,44 +262,41 @@
                 total += qty1 * price1;
             }
             if (qty2 > 0) {
-                orders.push(`Dodge Hellcat: ${qty2} x ₱${price2.toLocaleString()} = ₱${(qty2 * price2).toLocaleString()}`);
+                orders.push(`Dodgehellcat: ${qty2} x ₱${price2.toLocaleString()} = ₱${(qty2 * price2).toLocaleString()}`);
                 total += qty2 * price2;
             }
             if (qty3 > 0) {
-                orders.push(`Audi R8: ${qty3} x ₱${price3.toLocaleString()} = ₱${(qty3 * price3).toLocaleString()}`);
+                orders.push(`Audi r8: ${qty3} x ₱${price3.toLocaleString()} = ₱${(qty3 * price3).toLocaleString()}`);
                 total += qty3 * price3;
             }
             if (qty4 > 0) {
-                orders.push(`McLaren Senna: ${qty4} x ₱${price4.toLocaleString()} = ₱${(qty4 * price4).toLocaleString()}`);
+                orders.push(`Mclaren senna: ${qty4} x ₱${price4.toLocaleString()} = ₱${(qty4 * price4).toLocaleString()}`);
                 total += qty4 * price4;
             }
             if (qty5 > 0) {
-                orders.push(`Mustang Shelby: ${qty5} x ₱${price5.toLocaleString()} = ₱${(qty5 * price5).toLocaleString()}`);
+                orders.push(`Mustang shelby: ${qty5} x ₱${price5.toLocaleString()} = ₱${(qty5 * price5).toLocaleString()}`);
                 total += qty5 * price5;
             }
             if (qty6 > 0) {
-                orders.push(`Porsche Brabus: ${qty6} x ₱${price6.toLocaleString()} = ₱${(qty6 * price6).toLocaleString()}`);
+                orders.push(`Porsche brabus: ${qty6} x ₱${price6.toLocaleString()} = ₱${(qty6 * price6).toLocaleString()}`);
                 total += qty6 * price6;
             }
 
             // Display orders and total
             document.getElementById('carts').value = orders.join('\n');
-            document.getElementById('total').value = `₱${total.toLocaleString()}`;
+            document.getElementById('total').value = `Total: ₱${total.toLocaleString()}`;
+
+            // Clear the change field when orders are updated
+            document.getElementById('change').value = '';
         }
 
         function calculateChange() {
-            let total = parseFloat(document.getElementById('total').value.replace('₱', '').replace(/,/g, '')) || 0;
-            let cash = parseFloat(document.getElementById('cash').value) || 0;
+            let total = parseInt(document.getElementById('total').value.replace('Total: ₱', '').replace(/,/g, '')) || 0;
+            let cash = parseInt(document.getElementById('cash').value) || 0;
             let change = cash - total;
 
-            document.getElementById('change').value = `₱${change.toLocaleString()}`;
+            document.getElementById('change').value = `Change: ₱${change.toLocaleString()}`;
         }
-
-        // Update total and change on quantity change
-        document.querySelectorAll('.quantity-input').forEach(input => {
-            input.addEventListener('input', updateOrder);
-            input.addEventListener('input', calculateChange);
-        });
     </script>
 </body>
 </html>
